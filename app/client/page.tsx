@@ -12,7 +12,7 @@ const ClientSidePage = () => {
       );
       const data = await res.json();
       setdata(data);
-      console.log(data);
+      // console.log(data);
     }
     fetchdata();
   }, []);

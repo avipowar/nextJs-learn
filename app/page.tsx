@@ -5,7 +5,7 @@ export default async function Home() {
     "https://api.freeapi.app/api/v1/public/randomusers?page=1&limit=10",
   );
   const orginalData = await data.json();
-  console.log(data);
+  // console.log(data);
   return (
     <div>
       <h1>hello world</h1>
