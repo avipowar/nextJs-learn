@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
+import { createTodo } from "@/actions/todo";
 
 export function AddTodoForm() {
   const router = useRouter();
@@ -17,13 +18,10 @@ export function AddTodoForm() {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch("/api/todos", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title: trimmed }),
-      });
-
-      if (res.ok) {
+      const todo = await createTodo(trimmed);
+      console.log("todo-data: ", todo);
+      // @ts-ignore
+      if (todo) {
         setTitle("");
         router.refresh();
       }
